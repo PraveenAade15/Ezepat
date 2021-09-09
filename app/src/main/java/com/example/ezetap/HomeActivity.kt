@@ -17,9 +17,9 @@ class HomeActivity : AppCompatActivity() {
         val birthday=findViewById<EditText>(R.id.etBirthday)
         val save=findViewById<Button>(R.id.btnSave)
         save.setOnClickListener {
-            var user=userName.text.toString()
-            var emailId=email.text.toString()
-            var passwordNu=password.text.toString()
+            var user=userName.text.toString().trim()
+            var emailId=email.text.toString().trim()
+            var passwordNu=password.text.toString().trim()
             var birth=birthday.text.toString().trim()
             if (user.isEmpty()){
                 userName.error="Username Required"
@@ -40,7 +40,7 @@ class HomeActivity : AppCompatActivity() {
                 return@setOnClickListener
 
             }
-            val intent= Intent(this,ShowActivity::class.java)
+            val intent= Intent(this,AddressActivity::class.java)
             intent.putExtra("user",user)
             intent.putExtra("password",passwordNu)
             intent.putExtra("email",emailId)
